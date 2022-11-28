@@ -6,7 +6,7 @@ import ListUser from "../pages/ListUser";
 function Router() {
     return (
         <Routes>
-            <Route path="/" element={<Navigate to="/list-user" />} />
+            <Route path="/" element={<Navigate to="/create-user" />} />
 
             <Route path="/create-user" element={<CreateUser />} />
 

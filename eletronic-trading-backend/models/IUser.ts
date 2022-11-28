@@ -1,4 +1,5 @@
-export interface IUser {
+export interface IUser 
+{
     name: string;
     password: string;
     cpf: string;

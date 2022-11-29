@@ -2,7 +2,7 @@ import express, { Application, Request, Response } from "express";
 
 
 const app: Application = express();
-const port = 3000;
+const port = 3001;
 
 
 // Body parsing Middleware
@@ -25,5 +25,5 @@ try {
         console.log(`Conectado com Sucesso, ${port}`);
     });
 } catch (error) {
-    console.error(`Error occured: ${"Erro"}`);
+    console.error(`Error occured: ${"Error"}`);
 }

@@ -1,14 +1,11 @@
 import express, { Application, Request, Response } from "express";
 
-
 const app: Application = express();
 const port = 3001;
-
 
 // Body parsing Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
 
 app.get(
     "/",
@@ -18,7 +15,6 @@ app.get(
         });
     }
 );
-
 
 try {
     app.listen(port, (): void => {

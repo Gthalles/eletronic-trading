@@ -1,13 +1,43 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "../../components/Header";
 import BackgroundPaper from "../../layout/BackgroundPaper";
 import Button from "../../layout/Button";
 import Container from "../../layout/Container";
 import Font from "../../layout/Font";
 import Input from "../../layout/Input";
+import { IUser } from "../../model/IUser";
+import registerUser from "../../services/userRegistration";
 import colors from "../../styles/colors";
 
 function CreateUser() {
+  const [CPF, setCPF] = useState<string>("");
+  const [name, setName] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [city, setCity] = useState<string>("");
+
+  const newUser: IUser = {
+    cpf: CPF,
+    name: name,
+    password: password,
+    city: city
+  }
+
+  function handleCPFChange(value: string | undefined) {
+    value ? setCPF(value) : setCPF("");
+  }
+
+  function handleNameChange(value: string | undefined) {
+    value ? setName(value) : setName("");
+  }
+
+  function handlePasswordChange(value: string | undefined) {
+    value ? setPassword(value) : setPassword("");
+  }
+
+  function handleCityChange(value: string | undefined) {
+    value ? setCity(value) : setCity("");
+  }
+
   return (
     <BackgroundPaper>
       <Header />
@@ -30,11 +60,21 @@ function CreateUser() {
         </Container>
 
         <Input
+          id="cpf"
+          type="text"
+          placeholder="Informe o CPF.."
+          margin="15px 30px"
+          height="25px"
+          onchange={(event) => handleCPFChange(event?.target?.value)}
+        />
+
+        <Input
           id="name"
           type="text"
           placeholder="Digite o nome.."
           margin="15px 30px"
           height="25px"
+          onchange={(event) => handleNameChange(event?.target?.value)}
         />
 
         <Input
@@ -43,22 +83,16 @@ function CreateUser() {
           placeholder="Digite a senha.."
           margin="15px 30px"
           height="25px"
+          onchange={(event) => handlePasswordChange(event?.target?.value)}
         />
 
         <Input
-          id="cpf"
-          type="text"
-          placeholder="Informe o CPF.."
-          margin="15px 30px"
-          height="25px"
-        />
-
-        <Input
-          id="name"
+          id="city"
           type="text"
           placeholder="Informe o município.."
           margin="15px 30px"
           height="25px"
+          onchange={(event) => handleCityChange(event?.target?.value)}
         />
 
         <Container flex>
@@ -70,6 +104,7 @@ function CreateUser() {
             color="#FFF"
             fontSize="25px"
             backgroundColor={colors.success}
+            onclick={() => registerUser(newUser)}
           />
         </Container>
       </Container>

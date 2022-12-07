@@ -1,23 +1,10 @@
-import express, { Application, Request, Response } from "express";
+import { App } from "./src/app";
 
-const app: Application = express();
+const app = new App();
 const port = 3001;
 
-// Body parsing Middleware
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-
-app.get(
-    "/",
-    async (req: Request, res: Response): Promise<Response> => {
-        return res.status(200).send({
-            message: "Hello World!",
-        });
-    }
-);
-
 try {
-    app.listen(port, (): void => {
+    app.express.listen(port, (): void => {
         console.log(`Conectado com Sucesso, ${port}`);
     });
 } catch (error) {

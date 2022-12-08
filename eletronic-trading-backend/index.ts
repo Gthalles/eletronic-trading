@@ -7,6 +7,6 @@ try {
     app.express.listen(port, (): void => {
         console.log(`Conectado com Sucesso, ${port}`);
     });
-} catch (error) {
+} catch(error) {
     console.error(`Error occured: ${"Error"}`);
 }

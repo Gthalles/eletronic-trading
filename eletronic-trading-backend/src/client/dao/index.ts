@@ -1,3 +1,3 @@
-export { Postgres } from "./postgres";
+export { Postgres } from "./Postgres";
 
 export { UserClient } from "./UserClient";

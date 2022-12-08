@@ -6,27 +6,27 @@ class Postgres {
     public readonly client = new Pool({
         user: "postgres",
         password: "postgres",
-        host: "localhost",
         database: "eletronic_trading",
+        host: "localhost",
         port: 5432,
     });
 
-    public async connect () {
+    public async connect() {
         try {
             this.connection = await this.client.connect();
-            console.log("Conectando ao PostgreSQL!");
-        } catch (error) {
-            throw new Error("500: Erro ao tentar conectar ao BD!");
+            console.log("Connected to the PostgresDB");
+        } catch(error) {
+            throw new Error("500: Error on connecting to database");
         }
     }
 
-    public async disconnect () {
+    public async disconnect() {
         try {
             await this.connection.release();
-        } catch (error) {
-            throw new Error("500: Erro ao tentar desconectar do BD!");
+        } catch(error) {
+            throw new Error("500: Error on disconnecting to database");
         }
-        console.log("Desconectando do PostgreSQL!");
+        console.log("Disconnected to the Postgres");
     }
 }
 

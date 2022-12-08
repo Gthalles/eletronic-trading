@@ -1,4 +1,4 @@
-import { Postgres } from "./postgres";
+import { Postgres } from "./Postgres";
 import { IUser } from "../../model/IUser";
 
 class UserClient extends Postgres {
@@ -12,13 +12,15 @@ class UserClient extends Postgres {
                 data.password,
                 data.city,
             ]);
-            
-            console.log("User registered!");
 
+            console.log("User registered..");
+            
             return newUser.rows;
-        } catch (error: unknown) {
+        } catch(error: unknown) {
             console.log(error);
             throw new Error("503: Database Service Unvailable");
+        } finally {
+            await this.disconnect();
         }
     }
 }

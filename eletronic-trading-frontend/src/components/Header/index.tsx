@@ -28,11 +28,18 @@ function Header() {
 
                     <Container flex height="60px" alignItems="center">
                         <IconContainer
+                            externalIcon="group"
+                            margin="10px"
+                            size={45}
+                            color={colors.primary}
+                            linkReference="/list"
+                        />
+                        <IconContainer
                             externalIcon="person_add"
                             margin="10px"
                             size={45}
                             color={colors.primary}
-                            linkReference="/create-user"
+                            linkReference="/register"
                         />
                     </Container>
                 </Container>

@@ -23,6 +23,21 @@ class UserClient extends Postgres {
             await this.disconnect();
         }
     }
+
+    public async list() {
+        try {
+            await this.connect();
+            
+            const result = await this.client.query("SELECT cpf, name, city FROM users;");
+
+            return result.rows;
+        } catch (error: unknown) {
+            console.log(error);
+            throw new Error("503: Database Service Unvailable");
+        } finally {
+            await this.disconnect();
+        }
+    }
 }
 
 export { UserClient };

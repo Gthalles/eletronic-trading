@@ -6,9 +6,9 @@ class UsersListController {
 
     public async handle(req: Request, res: Response) {
         try {
-            await this.usersListService.execute();
+            const result = await this.usersListService.execute();
 
-            return res.status(200).send("User has ben registered.");
+            return res.status(200).send(result);
         } catch(error: any) {
             const [statusCode, message ] = error.message.split(":");
 

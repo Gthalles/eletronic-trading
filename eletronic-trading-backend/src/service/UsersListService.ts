@@ -1,5 +1,4 @@
 import { UserClient } from "../client/dao";
-import { IUser } from "../model/IUser";
 
 class UsersListService {
     private readonly userClient = new UserClient();

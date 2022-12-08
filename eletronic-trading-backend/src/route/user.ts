@@ -1,15 +1,10 @@
-import { UserRegistrationController } from "../controller";
+import { UserRegistrationController, UsersListController } from "../controller";
 import { Router } from "express";
-import { UsersListController } from "../controller/UsersListController";
-
-const userRegistrationController = new UserRegistrationController();
-
-const usersListController = new UsersListController();
 
 const router = Router();
 
-router.post("/user/register", userRegistrationController.handle.bind(userRegistrationController));
+router.post("/user/register", new UserRegistrationController().handle.bind(new UserRegistrationController()));
 
-router.get("/users/list", usersListController.handle.bind(UsersListController));
+router.get("/users/list", new UsersListController().handle.bind(new UsersListController()));
 
 export default router;

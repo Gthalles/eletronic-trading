@@ -1,15 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import Header from "../../components/Header";
-import RegisterForm from "../../components/RegisterForm";
 import BackgroundPaper from "../../layout/BackgroundPaper";
 
-function CreateUser() {
+function ListUsers() {
   return (
     <BackgroundPaper>
       <Header />
-      <RegisterForm />
+      <div>List user page.</div>
     </BackgroundPaper>
   );
 }
 
-export default CreateUser;
+export default ListUsers;

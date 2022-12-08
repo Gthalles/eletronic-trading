@@ -35,25 +35,25 @@ function Button({
 }: IProps) {
     if (linkReference) {
         return (
-            <Link to={linkReference}>
-                <S.Button
-                    type="button"
-                    margin={margin || "auto"}
-                    width={width}
-                    height={height}
-                    backgroundColor={backgroundColor}
-                    border={border || "none"}
-                    borderRadius={borderRadius || "none"}
-                    onClick={onclick}
-                >
+            <S.Button
+                type="button"
+                margin={margin || "auto"}
+                width={width}
+                height={height}
+                backgroundColor={backgroundColor}
+                border={border || "none"}
+                borderRadius={borderRadius || "none"}
+                onClick={onclick}
+            >
+                <Link to={linkReference}>
                     <Font
                         text={text}
                         size={fontSize}
                         weight={fontWeight || 300}
                         color={color}
                     />
-                </S.Button>
-            </Link>
+                </Link>
+            </S.Button>
         );
     }
 

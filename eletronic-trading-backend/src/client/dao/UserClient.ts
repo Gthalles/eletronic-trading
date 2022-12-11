@@ -1,7 +1,9 @@
 import { Postgres } from "./Postgres";
 import { IUser } from "../../model/IUser";
+import { QueryResult } from "pg";
 
 class UserClient extends Postgres {
+    private result: QueryResult<IUser> ;
     public async register(data: IUser) {
         try {
             await this.connect();
@@ -28,9 +30,8 @@ class UserClient extends Postgres {
         try {
             await this.connect();
             
-            const result = await this.client.query("SELECT cpf, name, city FROM users;");
-
-            return result.rows;
+            this.result = await this.client.query("SELECT cpf, name, city FROM users ORDER BY name;");
+            return this.result.rows;
         } catch (error: unknown) {
             console.log(error);
             throw new Error("503: Database Service Unvailable");
